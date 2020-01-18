@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include 'config.php';
 
 $token = $_GET['token'];
 
