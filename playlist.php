@@ -38,7 +38,7 @@ if (count($musicas) <= 0) {
 		<?php
 
 if (isset($_SESSION['validacao'])) {
-    echo "<a class='btn btn-primary' href='index.php'><button>voltar</button></a>";
+    echo "<a class='btn btn-primary' href='index.php'>voltar</a>";
 }
 include 'footer.php';
 ?>

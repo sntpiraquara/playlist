@@ -7,6 +7,7 @@ include 'header.php';
 		<div class="row">
 			<div class="col-sm">
 				<h2>cadastro de usuario</h2>
+				<?php aviso();?>
 				<form action="cadastro.php" method="POST">
 					<p><label for="email">E-mail</label><br>
 					<input class="form-control" id="email" required="required" type="email" name="email" placeholder="digite seu E-mail"></p>
@@ -27,8 +28,5 @@ include 'header.php';
 		</div>
 	</div>
 	<div>
-		<?php
-aviso();
-include 'footer.php';
-?>
+		<?php include 'footer.php';?>
 	</div>

@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include 'config.php';
 
 $idMusica = $_POST['id'];
 $nomeArtista = $_POST['artista'];
