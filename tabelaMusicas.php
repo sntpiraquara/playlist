@@ -21,22 +21,22 @@ $todasMusicas = mysqli_query($db, $sql);
 
 if (mysqli_num_rows($todasMusicas) > 0):
     while ($row = mysqli_fetch_assoc($todasMusicas)): ?>
-								            <form action="editar.php" method="post">
-								              <tr>
-								                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-								                <input type="hidden" name="nome" value="<?php echo $row['nomeMusica']; ?>">
-								                <input type="hidden" name="artista" value="<?php echo $row['nomeArtista']; ?>">
-								                <input type="hidden" name="tipo" value="<?php echo $row['tipo']; ?>">
+										            <form action="editar.php" method="post">
+										              <tr>
+										                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+										                <input type="hidden" name="nome" value="<?php echo $row['nomeMusica']; ?>">
+										                <input type="hidden" name="artista" value="<?php echo $row['nomeArtista']; ?>">
+										                <input type="hidden" name="tipo" value="<?php echo $row['tipo']; ?>">
 
-								                <td><?php echo $row['nomeMusica']; ?></td>
-								                <td><?php echo $row['nomeArtista']; ?></td>
-								                <td><?php echo $row['tipo']; ?></td>
-								                <td><button type= "button" class= "btn btn-primary btn-musica-editar">editar</button></td>
-								                <td>
-								                  <a type="button" class="btn btn-danger" href="excluir.php?musicaId=<?php echo $row['id']; ?>">excluir</a>
-								                </td>
-								              </form>
-								            <?php endwhile;?>
+										                <td><?php echo $row['nomeMusica']; ?></td>
+										                <td><?php echo $row['nomeArtista']; ?></td>
+										                <td><?php echo $row['tipo']; ?></td>
+										                <td><button type= "button" class= "btn btn-primary btn-musica-editar">editar</button></td>
+										                <td>
+										                  <a type="button" class="btn btn-danger" href="excluir.php?musicaId=<?php echo $row['id']; ?>">excluir</a>
+										                </td>
+										              </form>
+										            <?php endwhile;?>
           </tr>
         </tbody>
       </table>
@@ -44,7 +44,7 @@ if (mysqli_num_rows($todasMusicas) > 0):
   </div>
 
   <!-- Modal -->
-  <div class= "modal fade" id= "musicaEditarModal" tabindex= "-1" role= "dialog" aria-labelledby= "exampleModalLabel" aria-hidden= "true" style="width: 50%">
+  <div class= "modal fade" id= "musicaEditarModal" tabindex= "-1" role= "dialog" aria-labelledby= "exampleModalLabel" aria-hidden= "true">
     <div class= "modal-dialog" role= "document" >
       <div class= "modal-content" >
         <div class= "modal-header" >

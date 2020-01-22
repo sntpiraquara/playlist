@@ -1,5 +1,6 @@
 <?php
-include 'db.php';
+include 'config.php';
+
 $id = $_GET['musicaId'];
 
 $musica = new Musica($db);
