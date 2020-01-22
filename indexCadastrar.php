@@ -15,20 +15,13 @@
             <label for="artista">Nome do artista</label><br>
             <input class="form-control" id="artista" required="required" type="text" name="artista" placeholder="Nome do Artista/Banda">
           </p>
-
           <p>
-            <input id="agitada" required="required" type="radio" name="tipo" value="agitada">
-            <label for="agitada">Agitada</label>
-          </p>
-
-          <p>
-            <input id="transicao" required="required" type="radio" name="tipo" value="transição">
-            <label for="transicao">Transição</label>
-          </p>
-
-          <p>
-            <input id="adoracao" required="required" type="radio" name="tipo" value="adoração">
-            <label for="adoracao">Adoração</label>
+            <label for="tipo">Tipo</label><br>
+            <select name="tipo" id="tipo" class="form-control">
+              <option value="agitada">Agitada</option>
+              <option value="transição">Transição</option>
+              <option value="adoração">Adoração</option>
+            </select>
           </p>
 
           <p>

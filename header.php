@@ -18,6 +18,7 @@ require_once 'config.php';
 			background: #ccc;
 			border-top: 1px solid #a5a5a5;
 			border-bottom: 1px solid #a5a5a5;
+			text-transform: capitalize;
 		}
 		th:hover{
 			background-color: transparent;
@@ -34,6 +35,11 @@ require_once 'config.php';
 			padding: 0,9em;
 			text-align: center;
 			border: 1px solid #a5a5a5;
+			text-transform: capitalize;
+
+		}
+		button, a, h2{
+			text-transform: capitalize;
 		}
 
 	</style>
