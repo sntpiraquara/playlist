@@ -33,27 +33,9 @@ if (mysqli_num_rows($todasMusicas) > 0) {
                 <td><?php echo $row['nomeArtista']; ?></td>
                 <td><?php echo $row['tipo']; ?></td>
                 <td><button type="button" class= "btn btn-primary btn-musica-editar">Editar</button></td>
-                <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalExcluir">
+                <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#excluir">
                  excluir
                </button></td>
-               <div>
-                 <div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="excluir" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered"  role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="excluir">Tem certeza que deseja excluir?</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">não</button>
-                        <a type="button" class="btn btn-success" href="excluir.php?musicaId=<?php echo $row['id']; ?>">sim</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
               <?php
 endwhile;
 } else {
@@ -70,7 +52,7 @@ endwhile;
 <!-- Modal do editar -->
 <?php
 include 'modalEditar.php';
+include 'modalExcluir.php';
 ?>
 </div>
 </div>
- <!-- <a type="button" class="btn btn-danger" href="excluir.php?musicaId=<?php echo $row['id']; ?>">excluir</a> -->
