@@ -20,7 +20,7 @@ if (count($musicas) <= 0) {
 		<div class="container">
 			<div class="row">
 				<h1>Sua playlist!</h1>
-				<table class="tabela">
+				<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
 							<th>musica</th>
