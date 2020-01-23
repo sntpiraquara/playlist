@@ -44,10 +44,6 @@ require_once 'config.php';
 		button, a, h2, label{
 			text-transform: capitalize;
 		}
-		a.buttonExcluir{
-			text-decoration: none;
-			color: white;
-		}
 
 	</style>
 </head>
