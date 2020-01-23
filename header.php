@@ -9,6 +9,9 @@ require_once 'config.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<style>
+		div.container{
+			padding-top: 60px;
+		}
 		table{
 			border-collapse: collapse;
 			width: 100%;
@@ -38,7 +41,7 @@ require_once 'config.php';
 			text-transform: capitalize;
 
 		}
-		button, a, h2{
+		button, a, h2, label{
 			text-transform: capitalize;
 		}
 
