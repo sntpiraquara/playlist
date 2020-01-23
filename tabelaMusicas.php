@@ -34,7 +34,7 @@ if (mysqli_num_rows($todasMusicas) > 0) {
                 <td><?php echo $row['tipo']; ?></td>
                 <td><button type="button" class= "btn btn-primary btn-musica-editar">Editar</button></td>
                 <td>
-                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#excluir">
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalExemplo">
                    excluir
                  </button>
                </td>
