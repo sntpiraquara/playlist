@@ -10,7 +10,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">não</button>
-          <a type="button" class="btn btn-success" href="excluir.php?musicaId=<?php echo $row['id']; ?>">sim</a>
+          <button type="button" class="btn btn success"><a href="excluir.php?musicaId=<?php echo $row['id']; ?>">sim</a></button>
         </div>
       </div>
     </div>
