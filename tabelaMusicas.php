@@ -33,11 +33,14 @@ if (mysqli_num_rows($todasMusicas) > 0) {
                 <td><?php echo $row['nomeArtista']; ?></td>
                 <td><?php echo $row['tipo']; ?></td>
                 <td><button type="button" class= "btn btn-primary btn-musica-editar">Editar</button></td>
-                <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#excluir">
-                 excluir
-               </button></td>
-              <?php
-endwhile;
+                <td>
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#excluir">
+                   excluir
+                 </button>
+               </td>
+               <?php
+include 'modalExcluir.php';
+    endwhile;
 } else {
     echo "Nenhuma musica cadastrada ainda!";
 }
@@ -52,7 +55,6 @@ endwhile;
 <!-- Modal do editar -->
 <?php
 include 'modalEditar.php';
-include 'modalExcluir.php';
 ?>
 </div>
 </div>
