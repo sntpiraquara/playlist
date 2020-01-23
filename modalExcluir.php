@@ -1,4 +1,4 @@
-<div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="musicaExcluirModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -7,12 +7,14 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
-        <h5>Deseja excluir a música <i><b><?php echo $row['nomeMusica']; ?></b></i>?</h5>
+        <p>Deseja excluir a música <strong class="musica-nome"></strong>?</p>
       </div>
+      
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">não</button>
-        <button type="button" class="btn btn-success"><a style="text-decoration:none; color: white;" href="excluir.php?musicaId=<?php echo $row['id']; ?>">sim</a></button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-success musica-modal-excluir-btn" data-id="">Sim</a>
       </div>
     </div>
   </div>

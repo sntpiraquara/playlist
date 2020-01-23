@@ -1,60 +1,49 @@
-<div class="col-xl-12 col-sm-12">
-  <div class="table-responsive ">
-    <div class="container">
-      <h3>Musicas</h3>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>nome da musica</th>
-            <th>nome do artista</th>
-            <th>tipo de musica</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <!-- corpo da tabela  -->
-        <tbody>
-          <?php
+<?php
 $sql = "SELECT * FROM musicas";
+$musicasQuery = mysqli_query($db, $sql);
+?>
+<div class="col-xl-12 col-sm-12">
+  <h3>Músicas</h3>
 
-$todasMusicas = mysqli_query($db, $sql);
-if (mysqli_num_rows($todasMusicas) > 0) {
-    while ($row = mysqli_fetch_assoc($todasMusicas)): ?>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Artista</th>
+        <th>Tipo</th>
+        <th></th>
+      </tr>
+    </thead>
+    <!-- corpo da tabela  -->
+    <tbody>
+      <?php if (mysqli_num_rows($musicasQuery) === 0) : ?>
+        <tr>
+          <td colspan="4">Nenhuma música cadastrada ainda.</td>
+        </tr>
+      <?php else:
+        while ($musica = mysqli_fetch_assoc($musicasQuery)):?>
+          <tr>
+           <form action="editar.php" method="post">
+             <input type="hidden" name="id" value="<?= $musica['id']; ?>">
+             <input type="hidden" name="nome" value="<?= $musica['nomeMusica']; ?>">
+             <input type="hidden" name="artista" value="<?= $musica['nomeArtista']; ?>">
+             <input type="hidden" name="tipo" value="<?= $musica['tipo']; ?>">
+           </form>
+           <td><?= $musica['nomeMusica']; ?></td>
+           <td><?= $musica['nomeArtista']; ?></td>
+           <td><?= $musica['tipo']; ?></td>
+           <td>
+            <button type="button" class= "btn btn-primary btn-musica-editar">Editar</button>
+            <button type="button" class="btn btn-danger btn-musica-excluir">Excluir</button>
+          </td>
+        </tr>
+      <?php endwhile; ?>
+    <?php endif; ?>
+  </tbody>
+</table>
+</div>
 
-              <tr>
-               <form action="editar.php" method="post">
-                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                 <input type="hidden" name="nome" value="<?php echo $row['nomeMusica']; ?>">
-                 <input type="hidden" name="artista" value="<?php echo $row['nomeArtista']; ?>">
-                 <input type="hidden" name="tipo" value="<?php echo $row['tipo']; ?>">
-               </form>
-               <td><?php echo $row['nomeMusica']; ?></td>
-               <td><?php echo $row['nomeArtista']; ?></td>
-               <td><?php echo $row['tipo']; ?></td>
-               <td>
-                <button type="button" class= "btn btn-primary btn-musica-editar" data-target="musicaEditarModal">   editar
-                </button>
-              </td>
-              <td>
-               <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalExcluir">
-                excluir
-              </button>
-
-            </td>
-          </tr>
-          <?php
-endwhile;
-} else {
-    echo "Nenhuma musica cadastrada ainda!";
-}?>
-    </tbody>
-  </table>
-</div>
-</div>
-</div>
-<!-- Modal do editar -->
 <?php
 include 'modalEditar.php';
+include 'modalExcluir.php';
 ?>
-</div>
-</div>
