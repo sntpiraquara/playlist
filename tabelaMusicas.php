@@ -36,7 +36,7 @@ if (mysqli_num_rows($todasMusicas) > 0) {
                 <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalExcluir">
                  excluir
                </button></td>
-               <div class="container">
+               <div>
                  <div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="excluir" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered"  role="document">
                     <div class="modal-content">
