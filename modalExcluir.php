@@ -11,10 +11,10 @@
       <div class="modal-body">
         <p>Deseja excluir a música <strong class="musica-nome"></strong>?</p>
       </div>
-      
+
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
-        <button type="button" class="btn btn-success musica-modal-excluir-btn" data-id="">Sim</a>
+        <button type="button" class="btn btn-success musica-modal-excluir-btn" data-id="">Sim</button>
       </div>
     </div>
   </div>
