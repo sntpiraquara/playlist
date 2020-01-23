@@ -32,9 +32,9 @@ if (mysqli_num_rows($todasMusicas) > 0) {
                 <td><?php echo $row['nomeMusica']; ?></td>
                 <td><?php echo $row['nomeArtista']; ?></td>
                 <td><?php echo $row['tipo']; ?></td>
-                <td><button type="button" class= "btn btn-primary btn-musica-editar">Editar</button></td>
+                <td><button type="button" class= "btn btn-primary btn-musica-editar" data-target="musicaEditarModal">Editar</button></td>
                 <td>
-                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalExemplo">
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalExcluir">
                    excluir
                  </button>
                </td>
