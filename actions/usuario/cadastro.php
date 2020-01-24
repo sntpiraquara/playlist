@@ -7,8 +7,8 @@ $senha = $_POST['senha'];
 $confirmarSenha = $_POST['confirmarSenha'];
 
 if ($senha != $confirmarSenha) {
-	$_SESSION['aviso'] = "As senhas não conferem!";
-	exit(header("location:cadastrar.php"));
+    $_SESSION['aviso'] = "As senhas não conferem!";
+    exit(header("location: /cadastrar.php"));
 }
 
 $sql = "SELECT emailUsuario FROM usuario WHERE emailUsuario = '{$email}';";
@@ -17,8 +17,8 @@ $usuario = new Usuario($db);
 $emailExiste = $usuario->existe($sql);
 
 if ($emailExiste) {
-	$_SESSION['aviso'] = 'Esse endereço de E-mail já existe';
-	exit(header("Location: /cadastrar.php"));
+    $_SESSION['aviso'] = 'Esse endereço de E-mail já existe';
+    exit(header("Location: /cadastrar.php"));
 }
 
 $token_email = rand(10000, 999999999999);
