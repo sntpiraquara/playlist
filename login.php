@@ -1,5 +1,5 @@
 <?php
-$title = 'login';
+$title = 'Login';
 require_once 'config.php';
 include 'views/template/header.php';
 ?>

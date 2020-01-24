@@ -1,6 +1,4 @@
 <?php
-$title = "playlist";
-
 require_once 'config.php';
 require_once 'views/template/header.php';
 

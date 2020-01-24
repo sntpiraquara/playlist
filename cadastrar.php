@@ -1,5 +1,5 @@
 <?php
-$title = "cadastro de usuario";
+$title = "Cadastro";
 
 require_once 'config.php';
 require_once 'views/template/header.php';

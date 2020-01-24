@@ -1,6 +1,4 @@
 <?php
-$title = 'Playlist | SNT Piraquara';
-
 require_once 'config.php';
 require_once 'views/template/header.php';
 
