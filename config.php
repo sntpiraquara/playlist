@@ -2,8 +2,12 @@
 
 session_start();
 
+require_once "models/Usuario.php";
+require_once "models/Musica.php";
+require_once "models/Playlist.php";
+
 // Env config/vars
-$CONFIG = require_once "environment.php";
+$CONFIG = require_once "config/environment.php";
 global $CONFIG;
 
 if ($CONFIG['env'] === "dev") {
@@ -21,4 +25,4 @@ if ($CONFIG['env'] === "dev") {
 require_once "util.php";
 
 // Database stuff
-require_once "db.php";
+require_once "config/db.php";

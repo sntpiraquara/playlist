@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+require_once '../../config.php';
 
 $id = $_GET['musicaId'];
 
@@ -8,4 +8,4 @@ $musica->excluirMusica($id);
 
 $db->close();
 
-header('location:index.php');
+header('Location: /index.php');

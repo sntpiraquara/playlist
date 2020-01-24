@@ -1,7 +1,7 @@
 <div class="col-xl-4 col-12">
   <h2>Gerar Playlist</h2>
 
-  <form method="POST" action="gerar.php">
+  <form method="POST" action="actions/playlist/gerar.php">
     <div class="form-group">
       <label for="agitada">Agitada</label>
       <input id="agitada" class="form-control" required="required" name="quantidadeAgitada" type="number">

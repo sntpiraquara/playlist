@@ -1,52 +1,36 @@
-	<?php
+<?php
 $title = "playlist";
 
-require_once 'header.php';
+require_once 'config.php';
+require_once 'views/template/header.php';
 
 $ids = $_GET['musicas'];
 
 $playlist = new Playlist($db);
 $musicas = $playlist->getMusicas($ids);
-
-$db->close();
-
-if (count($musicas) <= 0) {
-    $_SESSION['aviso'] = "Nenhuma playlist encontrada!";
-    aviso();
-    exit;
-}
 ?>
-	<body>
-		<div class="container">
-			<div class="row">
-				<h1>Sua playlist!</h1>
-				<table class="table table-striped table-bordered">
-					<thead>
-						<tr>
-							<th>musica</th>
-							<th>artista</th>
-							<th>tipo</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php foreach ($musicas as $musica): ?>
-							<tr>
-								<td><?php echo $musica->nomeMusica; ?></td>
-								<td><?php echo $musica->nomeArtista; ?></td>
-								<td><?php echo $musica->tipo; ?></td>
-							</tr>
-						<?php endforeach;?>
-					</tbody>
-				</table>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<?php if (count($musicas) <= 0): ?>
+					<h2>Nenhuma playlist encontrada!</h2>
+					<?php else: ?>
+						<?php require_once 'views/playlist/tabela-playlist.php'; ?>
+					<?php endif; ?>
 
-				<?php
-
-if (isset($_SESSION['validacao'])) {
-    echo "<a class='btn btn-primary' href='index.php'>voltar</a>";
-}
-include 'footer.php';
-?>
+					<?php if (isset($_SESSION['validacao'])) : ?>
+						<div class="mt-5">
+							<a class='btn btn-primary' href='index.php'>Voltar</a>
+						</div>
+					<?php endif; ?>
+				</div>
 			</div>
 		</div>
 
+		<?php include 'views/template/footer.php'; ?>
+	</body>
+	<?php
+	$db->close();
+	?>
 

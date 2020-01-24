@@ -1,23 +1,32 @@
 <?php
 $title = "recuperar senha";
-
-include 'header.php';
+require_once 'config.php';
+require_once 'views/template/header.php';
 ?>
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm">
-				<h2>recuperação de senha</h2>
-					<div>
-						<?php aviso();?>
+				<h2>Recuperação de Senha</h2>
+				
+				<div class="aviso">
+					<?php aviso();?>
+				</div>
+				
+				<form action="actions/usuario/recuperar-senha.php" method="POST">
+					<div class="form-group">
+						<label for="email">E-mail</label>
+						<input id="email" class="form-control" required="required" type="email" name="email" placeholder="digite seu E-mail">
 					</div>
-				<form action="recuperarSenha.php" method="POST">
-					<p><label for="email">E-mail</label><br>
-						<input id="email" class="form-control" required="required" type="email" name="email" placeholder="digite seu E-mail"></p>
-					<p><button class="btn btn-success" type="submit">recuperar</button>
+
+					<button class="btn btn-lg btn-success" type="submit">Recuperar</button>
 				</form>
-				<a class="btn btn-primary" href="login.php">voltar ao login</a></p>
+
+				<div class="mt-5">
+					<a class="btn btn-primary" href="login.php">Voltar</a></p>
+				</div>
 			</div>
 		</div>
 	</div>
-	<?php include 'footer.php';?>
+</body>
+<?php require_once 'views/template/footer.php';?>

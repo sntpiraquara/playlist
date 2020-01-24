@@ -1,3 +1,5 @@
+feather.replace();
+
 $('.btn-musica-editar').click(function(){
   const $el = $(this);
   const row = $el.parents('tr')
@@ -37,5 +39,5 @@ $('.btn-musica-excluir').click(function(){
 
 $('.musica-modal-excluir-btn').click(function(){
   const id = $(this).attr('data-id');
-  document.location.href = `excluir.php?musicaId=${id}`
+  document.location.href = `/actions/musica/excluir.php?musicaId=${id}`
 });

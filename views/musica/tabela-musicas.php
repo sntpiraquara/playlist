@@ -18,7 +18,9 @@ $musicasQuery = mysqli_query($db, $sql);
     <tbody>
       <?php if (mysqli_num_rows($musicasQuery) === 0) : ?>
         <tr>
-          <td colspan="4">Nenhuma música cadastrada ainda.</td>
+          <td colspan="4">
+            <p class="text-center">Nenhuma música cadastrada ainda.</p>
+          </td>
         </tr>
       <?php else:
         while ($musica = mysqli_fetch_assoc($musicasQuery)):?>
@@ -44,6 +46,6 @@ $musicasQuery = mysqli_query($db, $sql);
 </div>
 
 <?php
-include 'modalEditar.php';
-include 'modalExcluir.php';
+require_once 'modals/modal-editar.php';
+require_once 'modals/modal-excluir.php';
 ?>

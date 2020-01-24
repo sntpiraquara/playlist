@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+require_once '../../config.php';
 
 $email = $_POST['email'];
 
@@ -38,11 +38,13 @@ if ($validacao > 0) {
         );
 
     }
-    $_SESSION['aviso'] = "sua senha foi recuperada, vá até o seu E-mail";
-    header("location:recuperar.php");
+    $_SESSION['aviso'] = "Sua senha foi recuperada. Verifique seu E-mail";
+    header("Location: /recuperar.php");
 
 } else {
     $_SESSION['aviso'] = "E-mail digitado incorretamente ou não existe!";
 }
-header("location:recuperar.php");
+
+header("Location: /recuperar.php");
+
 $db->close();

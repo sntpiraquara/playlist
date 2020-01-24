@@ -2,10 +2,6 @@
 
 global $CONFIG;
 
-require_once "Classes/Usuario.php";
-require_once "Classes/Musica.php";
-require_once "Classes/Playlist.php";
-
 $config = $CONFIG['database']['mysql'];
 
 $db = new mysqli(

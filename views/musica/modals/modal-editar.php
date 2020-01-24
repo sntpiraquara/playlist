@@ -10,7 +10,7 @@
       </div>
 
       <div class="modal-body">
-        <form action="editar.php" method="post">
+        <form action="actions/musica/editar.php" method="post">
           <input type="hidden" name="id" value="">
 
           <div class="form-group">

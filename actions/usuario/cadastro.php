@@ -1,6 +1,5 @@
 <?php
-
-include "config.php";
+require_once "../../config.php";
 
 $nome = $_POST['nome'];
 $email = $_POST['email'];
@@ -8,7 +7,7 @@ $senha = $_POST['senha'];
 $confirmarSenha = $_POST['confirmarSenha'];
 
 if ($senha != $confirmarSenha) {
-	$_SESSION['aviso'] = "as senhas não conferem!";
+	$_SESSION['aviso'] = "As senhas não conferem!";
 	exit(header("location:cadastrar.php"));
 }
 
@@ -18,8 +17,8 @@ $usuario = new Usuario($db);
 $emailExiste = $usuario->existe($sql);
 
 if ($emailExiste) {
-	$_SESSION['aviso'] = 'esse endereço de E-mail já existe';
-	exit(header("location:cadastrar.php"));
+	$_SESSION['aviso'] = 'Esse endereço de E-mail já existe';
+	exit(header("Location: /cadastrar.php"));
 }
 
 $token_email = rand(10000, 999999999999);
@@ -35,6 +34,6 @@ $usuario->cadastrar();
 
 $_SESSION['aviso'] = "Cadastro Realizado! Verifique o link no seu email.";
 
-header("location:login.php");
+header("Location: /login.php");
 
 $db->close();

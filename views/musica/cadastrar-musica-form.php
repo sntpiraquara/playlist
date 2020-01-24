@@ -1,7 +1,7 @@
 <div class="col-xl-6 col-12">
   <h2>Cadastrar Música</h2>
 
-  <form method="POST" action="cadastrarMusica.php">
+  <form method="POST" action="actions/musica/cadastrar.php">
     <div class="form-group">
       <label for="nome">Título</label>
       <input class="form-control" id="nome" required="required" type="text" name="nome" placeholder="Nome da Musica">

@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+require_once '../../config.php';
 
 $artista = $_POST['artista'];
 $nome = $_POST['nome'];
@@ -11,6 +11,6 @@ $musica->nome = $nome;
 $musica->tipo = $tipo;
 $musica->cadastrar();
 
-header("location:./index.php");
+header("Location: /index.php");
 
 $db->close();
