@@ -15,7 +15,7 @@ $('.btn-musica-editar').click(function(){
     $modal.find('input[name="id"]').val(id)
     $modal.find('input[name="nome"]').val(nome)
     $modal.find('input[name="artista"]').val(artista)
-    $modal.find('input[name="tipo"]').val(tipo)
+    $modal.find('select[name="tipo"]').val(tipo)
   })
 
   $modal.modal('show')
