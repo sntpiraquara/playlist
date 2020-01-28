@@ -25,11 +25,11 @@ function enviarEmail($from, $to, $subject, $body)
         $mail = new PHPMailer;
 
         $mail->isSMTP(); // Set mailer to use SMTP
-        $mail->Host = 'smtp.mailgun.org'; // Specify main and backup SMTP servers
+        $mail->Host = $CONFIG['mailgun']['host']; // Specify main and backup SMTP servers
         $mail->SMTPAuth = true; // Enable SMTP authentication
-        $mail->Username = 'postmaster@sandbox6a69b665f67b4914959e4876672b4594.mailgun.org'; // SMTP username
-        $mail->Password = '5d67f546ddb48afcc4422b1439105c2a-074fa10c-699c48b5'; // SMTP password
-        $mail->port = 465; // TCP port to connect to
+        $mail->Username = $CONFIG['mailgun']['user']; // SMTP username
+        $mail->Password = $CONFIG['mailgun']['password']; // SMTP password
+        $mail->port = $CONFIG['mailgun']['port']; // TCP port to connect to
         $mail->SMTPSecure = 'tls'; // Enable encryption, only 'tls' is accepted
 
         $mail->From = $from;
