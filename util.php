@@ -6,6 +6,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 require 'phpmailer/src/Exception.php';
 require 'phpmailer/src/PHPMailer.php';
 require 'phpmailer/src/SMTP.php';
+require 'phpmailer/src/OAuth.php';
 
 function dd($data)
 {
@@ -26,8 +27,8 @@ function enviarEmail($from, $to, $subject, $body)
         $mail->isSMTP(); // Set mailer to use SMTP
         $mail->Host = 'smtp.mailgun.org'; // Specify main and backup SMTP servers
         $mail->SMTPAuth = true; // Enable SMTP authentication
-        $mail->Username = 'brad@sandbox176b7676cd5e4987a02c450043f9d035.mailgun.org'; // SMTP username
-        $mail->Password = '5af6d467100e54c6009f4a67d85c5be7-9dfbeecd-3a7a4c37'; // SMTP password
+        $mail->Username = 'postmaster@sandbox6a69b665f67b4914959e4876672b4594.mailgun.org'; // SMTP username
+        $mail->Password = '5d67f546ddb48afcc4422b1439105c2a-074fa10c-699c48b5'; // SMTP password
         $mail->port = 465; // TCP port to connect to
         $mail->SMTPSecure = 'tls'; // Enable encryption, only 'tls' is accepted
 
@@ -64,7 +65,7 @@ function enviarEmailValidacao($nome, $email, $token)
         "playlist@localhost.com",
         $email,
         "Confirmacao Cadastro",
-        "para confirmar o cadastro clique no link: <a href='http://playlist.test/confirmar-cadastro.php?token=" . $token . "'>clique aqui</a>"
+        "para confirmar o cadastro clique no link:<a href='http://playlist.test/confirmar-cadastro.php?token=" . $token . "'>clique aqui</a>"
     );
 }
 

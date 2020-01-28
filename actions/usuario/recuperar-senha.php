@@ -34,7 +34,7 @@ if ($validacao > 0) {
             "plylist@localhost.com",
             $usuario['emailUsuario'],
             "Recuperar Senha",
-            "Sua nova senha:" . $usuario['senhaUsuario']
+            "Sua senha é:" . $usuario['senhaUsuario']
         );
 
     }

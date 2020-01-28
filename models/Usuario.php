@@ -22,7 +22,9 @@ class Usuario
 
         if (!$this->db->query($sql)) {
             exit($this->db->error);
+            return false;
         }
+        return true;
     }
 
     public function existe($sql)
