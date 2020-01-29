@@ -21,9 +21,9 @@ function enviarEmail($from, $to, $subject, $body)
 {
     $mail = new PHPMailer(true);
 
-    global $CONFIG;
-
     try {
+        global $CONFIG;
+
         $mail = new PHPMailer;
 
         $mail->isSMTP(); // Set mailer to use SMTP
