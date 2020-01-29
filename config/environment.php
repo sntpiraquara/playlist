@@ -29,6 +29,7 @@ function getMysqlConfigFromEnv()
 
 return [
     'env'      => getenv("APP_ENV") ?: "dev",
+
     'mailgun'  => [
         'host'     => getenv("MAILGUN_SMTP_SERVER") ?: null,
         'port'     => getenv("MAILGUN_SMTP_PORT") ?: null,
@@ -36,6 +37,7 @@ return [
         'password' => getenv("MAILGUN_SMTP_PASSWORD") ?: null,
         'domain'   => getenv("MAILGUN_DOMAIN") ?: null,
     ],
+
     'database' => [
         'mysql' => getMysqlConfigFromEnv(),
     ],

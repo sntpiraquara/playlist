@@ -21,6 +21,8 @@ function enviarEmail($from, $to, $subject, $body)
 {
     $mail = new PHPMailer(true);
 
+    global $CONFIG;
+
     try {
         $mail = new PHPMailer;
 
