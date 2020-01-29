@@ -3,19 +3,23 @@ require_once '../../config.php';
 
 $email = $_POST['email'];
 
-$sql = "SELECT emailUsuario FROM usuario WHERE emailUsuario = '{$email}'";
-$query = $db->query($sql);
+$usuario = new Usuario($db);
 
-if (!$query) {
-    echo $db->error . PHP_EOL;
-    exit;
+$sql = "SELECT emailUsuario FROM usuario WHERE emailUsuario = '{$email}' AND validado = 1;";
+
+if (!$usuario->existe($sql)) {
+    $_SESSION['aviso'] = "E-mail não encontrado ou invalidado!";
+    header("location: /recuperar.php");
+    exit();
 }
+
+$query = $db->query($sql);
 
 $validacao = mysqli_num_rows($query);
 
 if ($validacao > 0) {
 
-    $sql = "SELECT senhaUsuario, emailUsuario, nomeUsuario FROM usuario WHERE emailUsuario = '{$email}';";
+    $sql = "SELECT * FROM usuario WHERE emailUsuario = '{$email}';";
 
     $query = $db->query($sql);
 

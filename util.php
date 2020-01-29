@@ -51,7 +51,7 @@ function enviarEmail($from, $to, $subject, $body)
 function aviso()
 {
     if (isset($_SESSION['aviso'])) {
-        echo "<div class='alert alert-secondary' role='alert' alert-dismissible fade show><p>"
+        echo "<div class='alert alert-dark' role='alert' alert-dismissible fade show><p>"
             . $_SESSION['aviso'] .
             "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
         <span aria-hidden='true'>&times;</span></p></div>";
