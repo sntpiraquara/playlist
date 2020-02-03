@@ -3,20 +3,6 @@
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
-require 'phpmailer/src/Exception.php';
-require 'phpmailer/src/PHPMailer.php';
-require 'phpmailer/src/SMTP.php';
-require 'phpmailer/src/OAuth.php';
-
-function dd($data)
-{
-    echo '<pre>';
-    foreach (func_get_args() as $var) {
-        var_dump($var);
-    }
-    die();
-}
-
 function enviarEmail($from, $to, $subject, $body)
 {
     $mail = new PHPMailer(true);
@@ -25,8 +11,6 @@ function enviarEmail($from, $to, $subject, $body)
         global $CONFIG;
 
         $mail = new PHPMailer;
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-        $mail->SMTPDebug = 2;
 
         $mail->isSMTP(); // Set mailer to use SMTP
         $mail->Host = $CONFIG['mailgun']['host']; // Specify main and backup SMTP servers
@@ -48,6 +32,7 @@ function enviarEmail($from, $to, $subject, $body)
         $mail->send();
         return true;
     } catch (Exception $e) {
+        error_log($e);
         return false;
     }
 }

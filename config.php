@@ -2,6 +2,8 @@
 
 session_start();
 
+require_once "vendor/autoload.php";
+
 require_once "models/Usuario.php";
 require_once "models/Musica.php";
 require_once "models/Playlist.php";
