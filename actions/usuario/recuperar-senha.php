@@ -17,40 +17,35 @@ $query = $db->query($sql);
 
 $validacao = mysqli_num_rows($query);
 
-if ($validacao > 0) {
-
-    $sql = "SELECT * FROM usuario WHERE emailUsuario = '{$email}';";
-
-    $query = $db->query($sql);
-
-    if (!$query) {
-        exit($db->error);
-    }
-
-    $usuario = [];
-
-    if (mysqli_num_rows($query) > 0) {
-        while ($row = mysqli_fetch_assoc($query)) {
-            $usuario = $row;
-        }
-
-        enviarEmail(
-            "plylist@localhost.com",
-            $usuario['emailUsuario'],
-            "Recuperar Senha",
-            "Sua senha é:" . $usuario['senhaUsuario']
-        );
-
-        die();
-
-    }
-    $_SESSION['aviso'] = "Sua senha foi recuperada. Verifique seu E-mail";
+if ($validacao <= 0) {
+    $_SESSION['aviso'] = "E-mail digitado incorretamente ou não existe!";
     header("Location: /recuperar.php");
 
-} else {
-    $_SESSION['aviso'] = "E-mail digitado incorretamente ou não existe!";
+    $db->close();
 }
 
-header("Location: /recuperar.php");
+$sql = "SELECT * FROM usuario WHERE emailUsuario = '{$email}';";
 
-$db->close();
+$query = $db->query($sql);
+
+if (!$query) {
+    exit($db->error);
+}
+
+$usuario = [];
+
+if (mysqli_num_rows($query) > 0) {
+    while ($row = mysqli_fetch_assoc($query)) {
+        $usuario = $row;
+    }
+
+    enviarEmail(
+        "plylist@localhost.com",
+        $usuario['emailUsuario'],
+        "Recuperar Senha",
+        "Sua senha é:" . $usuario['senhaUsuario']
+    );
+}
+
+$_SESSION['aviso'] = "Sua senha foi recuperada. Verifique seu E-mail";
+header("Location: /recuperar.php");

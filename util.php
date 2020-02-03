@@ -2,6 +2,7 @@
 
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\SMTP;
 
 function enviarEmail($from, $to, $subject, $body)
 {
@@ -11,28 +12,30 @@ function enviarEmail($from, $to, $subject, $body)
         global $CONFIG;
 
         $mail = new PHPMailer;
+        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        // $mail->SMTPDebug = 2;
+        $mail->isSMTP();
+        $mail->Host = $CONFIG['mailgun']['host'];
+        $mail->SMTPAuth = true;
+        $mail->Username = $CONFIG['mailgun']['user'];
+        $mail->Password = $CONFIG['mailgun']['password'];
+        $mail->port = $CONFIG['mailgun']['port'];
+        $mail->SMTPSecure = 'tls';
 
-        $mail->isSMTP(); // Set mailer to use SMTP
-        $mail->Host = $CONFIG['mailgun']['host']; // Specify main and backup SMTP servers
-        $mail->SMTPAuth = true; // Enable SMTP authentication
-        $mail->Username = $CONFIG['mailgun']['user']; // SMTP username
-        $mail->Password = $CONFIG['mailgun']['password']; // SMTP password
-        $mail->port = $CONFIG['mailgun']['port']; // TCP port to connect to
-        $mail->SMTPSecure = 'tls'; // Enable encryption, only 'tls' is accepted
+        $mail->From = 'playlist@' . $CONFIG['mailgun']['domain'];
+        $mail->FromName = 'SNT Playlist';
+        $mail->addAddress($to);
 
-        $mail->From = $from;
-        $mail->FromName = 'Snt-playlist';
-        $mail->addAddress($to); // Add a recipient
-
-        $mail->WordWrap = 50; // Set word wrap to 50 characters
+        $mail->WordWrap = 50;
 
         $mail->Subject = $subject;
+        $mail->isHTML(true);
         $mail->Body = $body;
 
         $mail->send();
         return true;
     } catch (Exception $e) {
-        error_log($e);
+        error_log($e->getMessage());
         return false;
     }
 }
