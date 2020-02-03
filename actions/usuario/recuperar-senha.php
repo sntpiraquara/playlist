@@ -41,6 +41,8 @@ if ($validacao > 0) {
             "Sua senha é:" . $usuario['senhaUsuario']
         );
 
+        die();
+
     }
     $_SESSION['aviso'] = "Sua senha foi recuperada. Verifique seu E-mail";
     header("Location: /recuperar.php");

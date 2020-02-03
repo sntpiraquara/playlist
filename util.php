@@ -25,6 +25,8 @@ function enviarEmail($from, $to, $subject, $body)
         global $CONFIG;
 
         $mail = new PHPMailer;
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        $mail->SMTPDebug = 2;
 
         $mail->isSMTP(); // Set mailer to use SMTP
         $mail->Host = $CONFIG['mailgun']['host']; // Specify main and backup SMTP servers
