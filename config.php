@@ -10,6 +10,9 @@ require_once "models/Playlist.php";
 $CONFIG = require_once "config/environment.php";
 global $CONFIG;
 
+var_dump($CONFIG['mailgun']);
+exit();
+
 if ($CONFIG['env'] === "dev") {
     error_reporting(E_ALL);
     ini_set("display_errors", true);

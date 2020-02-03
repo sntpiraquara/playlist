@@ -36,6 +36,7 @@ return [
         'user'     => getenv("MAILGUN_SMTP_LOGIN") ?: null,
         'password' => getenv("MAILGUN_SMTP_PASSWORD") ?: null,
         'domain'   => getenv("MAILGUN_DOMAIN") ?: null,
+        'key'      => getenv("MAILGUN_API_KEY") ?: null,
     ],
 
     'database' => [
