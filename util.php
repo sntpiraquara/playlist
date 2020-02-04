@@ -46,7 +46,11 @@ function enviarEmailValidacao($nome, $email, $token)
         "playlist@localhost.com",
         $email,
         "Confirmacao Cadastro",
-        "para confirmar o cadastro clique no link:<a href='http://snt-playlist.herokuapp.com/confirmar-cadastro.php?token=" . $token . "'>clique aqui</a>"
+        "para confirmar o cadastro clique no link:<a href='"
+        . $_SERVER['SERVER_NAME'] .
+        "'/confirmar-cadastro.php?token="
+        . $token .
+        "'>clique aqui</a>"
     );
 }
 
