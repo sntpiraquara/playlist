@@ -1,41 +1,32 @@
 <?php
 
-use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\PHPMailer;
-// use PHPMailer\PHPMailer\SMTP;
+require 'vendor/autoload.php';
+
+use Mailgun\Mailgun;
 
 function enviarEmail($from, $to, $subject, $body)
 {
-    $mail = new PHPMailer(true);
-
     try {
         global $CONFIG;
 
-        $mail = new PHPMailer;
-        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-        // $mail->SMTPDebug = 2;
-        $mail->isSMTP();
-        $mail->Host = $CONFIG['mailgun']['host'];
-        $mail->SMTPAuth = true;
-        $mail->Username = $CONFIG['mailgun']['user'];
-        $mail->Password = $CONFIG['mailgun']['password'];
-        $mail->port = $CONFIG['mailgun']['port'];
-        $mail->SMTPSecure = 'tls';
+        $domain = $CONFIG['mailgun']['domain'];
+        $apiUrl = "https://api.mailgun.net/v3/$domain";
+        $mgClient = Mailgun::create($CONFIG['mailgun']['key'], $apiUrl);
+        $params = array(
+            'from'    => $from,
+            'to'      => $to,
+            'subject' => $subject,
+            'text'    => $body,
+        );
 
-        $mail->From = 'playlist@' . $CONFIG['mailgun']['domain'];
-        $mail->FromName = 'SNT Playlist';
-        $mail->addAddress($to);
+        # Make the call to the client.
+        $mgClient->messages()->send($domain, $params);
 
-        $mail->WordWrap = 50;
-
-        $mail->Subject = $subject;
-        $mail->isHTML(true);
-        $mail->Body = $body;
-
-        $mail->send();
         return true;
     } catch (Exception $e) {
         error_log($e->getMessage());
+        dd($e);
+
         return false;
     }
 }

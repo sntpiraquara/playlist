@@ -31,12 +31,8 @@ return [
     'env'      => getenv("APP_ENV") ?: "dev",
 
     'mailgun'  => [
-        'host'     => getenv("MAILGUN_SMTP_SERVER") ?: null,
-        'port'     => getenv("MAILGUN_SMTP_PORT") ?: null,
-        'user'     => getenv("MAILGUN_SMTP_LOGIN") ?: null,
-        'password' => getenv("MAILGUN_SMTP_PASSWORD") ?: null,
-        'domain'   => getenv("MAILGUN_DOMAIN") ?: null,
-        'key'      => getenv("MAILGUN_API_KEY") ?: null,
+        'key'    => getenv("MAILGUN_API_KEY") ?: null,
+        'domain' => getenv("MAILGUN_DOMAIN") ?: null,
     ],
 
     'database' => [

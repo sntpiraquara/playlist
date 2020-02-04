@@ -9,12 +9,12 @@ verificaUsuarioLogado();
 
 	<div class="container">
 		<div class="row mt-2">
-			<?php include_once 'views/musica/cadastrar-musica-form.php'; ?>
-			<?php include_once 'views/playlist/gerar-playlist-form.php'; ?>
+			<?php include_once 'views/musica/cadastrar-musica-form.php';?>
+			<?php include_once 'views/playlist/gerar-playlist-form.php';?>
 		</div>
 
 		<div class="row mt-4">
-			<?php include_once 'views/musica/tabela-musicas.php'; ?>
+			<?php include_once 'views/musica/tabela-musicas.php';?>
 		</div>
 
 	</div>
