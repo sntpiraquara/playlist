@@ -45,8 +45,6 @@ if (mysqli_num_rows($query) > 0) {
         "Recuperar Senha",
         "Sua senha é:" . $usuario['senhaUsuario']
     );
-
-    dd('depois email');
 }
 
 $_SESSION['aviso'] = "Sua senha foi recuperada. Verifique seu E-mail";

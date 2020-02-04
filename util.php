@@ -25,7 +25,6 @@ function enviarEmail($from, $to, $subject, $body)
         return true;
     } catch (Exception $e) {
         error_log($e->getMessage());
-
         return false;
     }
 }
