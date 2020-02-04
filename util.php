@@ -56,3 +56,4 @@ function verificaUsuarioLogado()
         header("location:login.php");
         exit;
     }
+}
