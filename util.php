@@ -16,7 +16,7 @@ function enviarEmail($from, $to, $subject, $body)
             'from'    => $from,
             'to'      => $to,
             'subject' => $subject,
-            'text'    => isHTML($body),
+            'text'    => $body,
         );
 
         # Make the call to the client.
