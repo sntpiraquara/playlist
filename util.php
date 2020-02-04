@@ -16,7 +16,7 @@ function enviarEmail($from, $to, $subject, $body)
             'from'    => $from,
             'to'      => $to,
             'subject' => $subject,
-            'text'    => $body,
+            'text'    => isHTML($body),
         );
 
         # Make the call to the client.
@@ -46,7 +46,7 @@ function enviarEmailValidacao($nome, $email, $token)
         "playlist@localhost.com",
         $email,
         "Confirmacao Cadastro",
-        "para confirmar o cadastro clique no link:<a href='http://playlist.test/confirmar-cadastro.php?token=" . $token . "'>clique aqui</a>"
+        "para confirmar o cadastro clique no link:<a href='http://snt-playlist.herokuapp.com/confirmar-cadastro.php?token=" . $token . "'>clique aqui</a>"
     );
 }
 
@@ -56,4 +56,3 @@ function verificaUsuarioLogado()
         header("location:login.php");
         exit;
     }
-}
