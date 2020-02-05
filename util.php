@@ -13,10 +13,16 @@ function enviarEmail($from, $to, $subject, $body)
         $apiUrl = "https://api.mailgun.net/v3/$domain";
         $mgClient = Mailgun::create($CONFIG['mailgun']['key'], $apiUrl);
         $params = array(
-            'from'    => $from,
-            'to'      => $to,
-            'subject' => $subject,
-            'text'    => $body,
+            'from'         => $from,
+            'to'           => $to,
+            'subject'      => $subject,
+            'html'         => $body,
+            'attachment'   => array(
+                array(
+                   'filepath' => 'text.txt',
+                   'filename' => 'test_file.txt'
+               );
+            );
         );
 
         # Make the call to the client.
@@ -33,8 +39,8 @@ function aviso()
 {
     if (isset($_SESSION['aviso'])) {
         echo "<div class='alert alert-dark' role='alert' alert-dismissible fade show><p>"
-            . $_SESSION['aviso'] .
-            "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+        . $_SESSION['aviso'] .
+        "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
         <span aria-hidden='true'>&times;</span></p></div>";
     }
     unset($_SESSION['aviso']);
