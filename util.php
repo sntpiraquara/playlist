@@ -13,16 +13,10 @@ function enviarEmail($from, $to, $subject, $body)
         $apiUrl = "https://api.mailgun.net/v3/$domain";
         $mgClient = Mailgun::create($CONFIG['mailgun']['key'], $apiUrl);
         $params = array(
-            'from'       => $from,
-            'to'         => $to,
-            'subject'    => $subject,
-            'html'       => $body,
-            'attachment' => array(
-                array(
-                    'filepath' => 'text.txt',
-                    'filename' => 'test_file.txt',
-                ),
-            ),
+            'from'    => $from,
+            'to'      => $to,
+            'subject' => $subject,
+            'text'    => $body,
         );
 
         # Make the call to the client.
@@ -50,8 +44,11 @@ function enviarEmailValidacao($nome, $email, $token)
 {
     enviarEmail(
         "playlist@localhost.com",
+
         $email,
+
         "Confirmacao Cadastro",
+
         "para confirmar o cadastro clique no link:<a href='"
         . $_SERVER['SERVER_NAME'] .
         "/confirmar-cadastro.php?token="
