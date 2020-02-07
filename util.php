@@ -13,19 +13,13 @@ function enviarEmail($from, $to, $subject, $body, $html)
         $apiUrl = "https://api.mailgun.net/v3/$domain";
         $mgClient = Mailgun::create($CONFIG['mailgun']['key'], $apiUrl);
         $params = array(
-            'from'       => $from,
-            'cc'         => $to,
-            'bcc'        => $to,
-            'to'         => $to,
-            'subject'    => $subject,
-            'text'       => $body,
-            'html'       => $html,
-            'attachment' => array(
-                array(
-                    'filePath' => 'test.txt',
-                    'filename' => 'test_file.txt',
-                ),
-            ),
+            'from'    => $from,
+            'cc'      => $to,
+            'bcc'     => $to,
+            'to'      => $to,
+            'subject' => $subject,
+            'text'    => $body,
+            'html'    => $html,
         );
 
         # Make the call to the client.
