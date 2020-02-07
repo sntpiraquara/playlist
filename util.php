@@ -14,6 +14,8 @@ function enviarEmail($from, $to, $subject, $body, $html)
         $mgClient = Mailgun::create($CONFIG['mailgun']['key'], $apiUrl);
         $params = array(
             'from'       => $from,
+            'cc'         => $to,
+            'bcc'        => $to,
             'to'         => $to,
             'subject'    => $subject,
             'text'       => $body,
