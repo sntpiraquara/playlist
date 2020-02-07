@@ -60,7 +60,7 @@ function enviarEmailValidacao($nome, $email, $token)
 
         "para confirmar o cadastro clique no link:<a href='", //var @body
 
-        $_SERVER['SERVER_NAME'] . "/confirmar-cadastro.php?token=" . $token . "'>clique aqui</a>" //var @html
+       "<html>" $_SERVER['SERVER_NAME'] . "/confirmar-cadastro.php?token=" . $token . "'>clique aqui</a></html>" //var @html
     );
 }
 
