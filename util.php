@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 
 use Mailgun\Mailgun;
 
-function enviarEmail($from, $to, $subject, $body)
+function enviarEmail($from, $to, $subject, $body, $html)
 {
     try {
         global $CONFIG;
@@ -13,10 +13,17 @@ function enviarEmail($from, $to, $subject, $body)
         $apiUrl = "https://api.mailgun.net/v3/$domain";
         $mgClient = Mailgun::create($CONFIG['mailgun']['key'], $apiUrl);
         $params = array(
-            'from'    => $from,
-            'to'      => $to,
-            'subject' => $subject,
-            'text'    => $body,
+            'from'       => $from,
+            'to'         => $to,
+            'subject'    => $subject,
+            'text'       => $body,
+            'html'       => $html,
+            'attachment' => array(
+                array(
+                    'filePath' => 'test.txt',
+                    'filename' => 'test_file.txt',
+                ),
+            ),
         );
 
         # Make the call to the client.
@@ -43,17 +50,15 @@ function aviso()
 function enviarEmailValidacao($nome, $email, $token)
 {
     enviarEmail(
-        "playlist@localhost.com",
+        "playlist@localhost.com", // var @from
 
-        $email,
+        $email, //var @to
 
-        "Confirmacao Cadastro",
+        "Confirmacao Cadastro", //var @subject
 
-        "para confirmar o cadastro clique no link:<a href='"
-        . $_SERVER['SERVER_NAME'] .
-        "/confirmar-cadastro.php?token="
-        . $token .
-        "'>clique aqui</a>"
+        "para confirmar o cadastro clique no link:<a href='", //var @body
+
+        $_SERVER['SERVER_NAME'] . "/confirmar-cadastro.php?token=" . $token . "'>clique aqui</a>" //var @html
     );
 }
 
