@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 
 use Mailgun\Mailgun;
 
-function enviarEmail($from, $to, $subject, $body, $html)
+function enviarEmail($from, $to, $subject, $body, $html = null)
 {
     try {
         global $CONFIG;
