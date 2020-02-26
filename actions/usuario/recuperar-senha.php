@@ -44,7 +44,7 @@ if (mysqli_num_rows($query) > 0) {
         $usuario['emailUsuario'],
         "Recuperar Senha",
         "Sua senha é: ",
-        "<html><b>$usuario['senhaUsuario']</b></html>"
+        "<html><b>" . $usuario['senhaUsuario'] . "</b></html>"
     );
 }
 
