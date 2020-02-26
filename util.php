@@ -43,7 +43,7 @@ function aviso()
     unset($_SESSION['aviso']);
 }
 
-function enviarEmailValidacao($nome, $email, $token)
+function enviarEmailValidacao($email, $token)
 {
     enviarEmail(
         "playlist@localhost.com", // var @from
