@@ -44,10 +44,10 @@ class Playlist
     {
         $nomePlaylist = addslashes($nome);
 
-        $sql = "SELECT id_musica FROM playlist WHERE id_musicas = '{$id_musicas}';";
+        $sql = "SELECT id_musicas FROM playlist WHERE id_musicas = '{$id_musicas}';";
         $query = $this->db->query($sql);
 
-        if (!$query || $query > 0) {
+        if (!$query) {
             error_log($this->db->error . PHP_EOL);
             $_SESSION['aviso'] = "playlist já existente!";
             return false;
