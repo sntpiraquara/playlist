@@ -8,6 +8,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  text-transform: capitalize;
 }
 .footer {
   position: absolute;
@@ -28,4 +29,5 @@ body > .container {
   padding-right: 15px;
   padding-left: 15px;
 }
+
 

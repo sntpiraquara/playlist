@@ -1,7 +1,7 @@
 <?php
 require_once '../../config.php';
 
-$email = $_POST['email'];
+$email = addslashes($_POST['email']);
 
 $usuario = new Usuario($db);
 

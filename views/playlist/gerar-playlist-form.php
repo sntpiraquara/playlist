@@ -18,8 +18,6 @@
     </div>
 
     <button  type="submit" class="btn btn-success">Gerar</button>
-    
-    <?php aviso();?>
-
+    <a href="views/playlist/listaPlaylist.php"><button type="button" class="btn btn-primary">Lista De Playlits</button></a>
   </form>
 </div>

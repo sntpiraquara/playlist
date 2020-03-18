@@ -18,7 +18,7 @@ class Musica
     {
         $sql = "INSERT INTO musicas (nomeArtista, nomeMusica, tipo) VALUES ('$this->artista', '$this->nome', '$this->tipo')";
         if (!$this->db->query($sql)) {
-            echo $db->error . PHP_EOL;
+            echo $this->db->error . PHP_EOL;
             return false;
         }
         return true;

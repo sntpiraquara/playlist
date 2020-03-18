@@ -1,14 +1,14 @@
 <?php
-require_once '../../config.php';
+require_once dirname(__FILE__, 3) . "/config.php";
 
 $qtdAgitada = intval($_POST['quantidadeAgitada']);
 $qtdTransicao = intval($_POST['quantidadeTransicao']);
 $qtdAdoracao = intval($_POST['quantidadeAdoracao']);
 
 if ($qtdAgitada + $qtdAdoracao + $qtdTransicao === 0) {
-	$_SESSION["aviso"] = "Você precisa escolher um tipo de musica pelo menos!";
-	header("Location: index.php");
-	exit();
+    $_SESSION["aviso"] = "Você precisa escolher um tipo de musica pelo menos!";
+    header("Location: /index.php");
+    exit;
 }
 
 $musica = new Musica($db);

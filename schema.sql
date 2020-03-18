@@ -15,3 +15,10 @@ CREATE TABLE `playlist`.`usuario` (
 	`token_email` VARCHAR(255),
 	PRIMARY KEY (id)
 );
+
+CREATE TABLE playlist (
+	id INT auto_increment NOT NULL,
+	nome_playlist VARCHAR(255) NOT NULL,
+	id_musicas VARCHAR(60),
+	PRIMARY KEY (id)
+);

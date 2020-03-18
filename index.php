@@ -8,6 +8,7 @@ verificaUsuarioLogado();
 	<?php include_once 'views/template/nav.php';?>
 
 	<div class="container">
+		<?php aviso(); ?>
 		<div class="row mt-2">
 			<?php include_once 'views/musica/cadastrar-musica-form.php';?>
 			<?php include_once 'views/playlist/gerar-playlist-form.php';?>

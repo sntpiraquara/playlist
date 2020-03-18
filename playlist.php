@@ -14,21 +14,27 @@ $musicas = $playlist->getMusicas($ids);
 				<?php if (count($musicas) <= 0): ?>
 					<h2>Nenhuma playlist encontrada!</h2>
 					<?php else: ?>
-						<?php require_once 'views/playlist/tabela-playlist.php'; ?>
-					<?php endif; ?>
-
-					<?php if (isset($_SESSION['validacao'])) : ?>
+						<?php include 'views/playlist/tabela-playlist.php';?>
+					<?php endif;?>
+					<?php aviso();?>
+					<?php if (isset($_SESSION['validacao'])): ?>
 						<div class="mt-5">
 							<a class='btn btn-primary' href='index.php'>Voltar</a>
+							<div class="form-group">
+								<form action="actions/playlist/salvar_playlist.php" method="post">
+									<input type="hidden" name="id_musicas" value="<?php echo $ids; ?>">
+									<input type="submit" class="btn btn-success" value="Salve essa playlist">
+									<input required="required" type="text" class="form-control" name="nome_playlist" placeholder="Nome da playlist">
+								</form>
+							</div>
 						</div>
-					<?php endif; ?>
+					<?php endif;?>
 				</div>
 			</div>
 		</div>
-
-		<?php include 'views/template/footer.php'; ?>
+		<?php
+include 'views/template/footer.php';
+$db->close();
+?>
 	</body>
-	<?php
-	$db->close();
-	?>
 

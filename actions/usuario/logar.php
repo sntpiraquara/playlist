@@ -3,8 +3,8 @@ require_once "../../config.php";
 
 $usuario = new Usuario($db);
 
-$email = $_POST['email'];
-$senha = $_POST['senha'];
+$email = addslashes($_POST['email']);
+$senha = addslashes($_POST['senha']);
 
 $sql = "SELECT emailUsuario, senhaUsuario
 FROM usuario

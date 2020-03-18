@@ -1,10 +1,10 @@
 <?php
 require_once "../../config.php";
 
-$nome = $_POST['nome'];
-$email = $_POST['email'];
-$senha = $_POST['senha'];
-$confirmarSenha = $_POST['confirmarSenha'];
+$nome = addslashes($_POST['nome']);
+$email = addslashes($_POST['email']);
+$senha = addslashes($_POST['senha']);
+$confirmarSenha = addslashes($_POST['confirmarSenha']);
 
 if ($senha != $confirmarSenha) {
     $_SESSION['aviso'] = "As senhas não conferem!";

@@ -1,10 +1,10 @@
 <?php
-require_once '../../config.php';
+include dirname(__FILE__, 3) . "/config.php";
 
-$idMusica = $_POST['id'];
-$nomeArtista = $_POST['artista'];
-$nomeMusica = $_POST['nome'];
-$tipo = $_POST['tipo'];
+$idMusica = addslashes($_POST['id']);
+$nomeArtista = addslashes($_POST['artista']);
+$nomeMusica = addslashes($_POST['nome']);
+$tipo = addslashes($_POST['tipo']);
 
 $sql = "UPDATE musicas
 	SET nomeArtista = '$nomeArtista',

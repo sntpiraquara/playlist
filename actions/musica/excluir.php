@@ -1,5 +1,5 @@
 <?php
-require_once '../../config.php';
+require_once dirname(__FILE__, 3) . "/config.php";
 
 $id = $_GET['musicaId'];
 
