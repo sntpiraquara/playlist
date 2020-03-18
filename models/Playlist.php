@@ -47,7 +47,7 @@ class Playlist
         $sql = "SELECT id_musica FROM playlist WHERE id_musicas = '{$id_musicas}';";
         $query = $this->db->query($sql);
 
-        if (!$query) {
+        if (!$query || $query > 0) {
             error_log($this->db->error . PHP_EOL);
             $_SESSION['aviso'] = "playlist já existente!";
             return false;
