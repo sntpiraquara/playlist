@@ -44,15 +44,6 @@ class Playlist
     {
         $nomePlaylist = addslashes($nome);
 
-        $sql = "SELECT id_musicas FROM playlist WHERE id_musicas = '{$id_musicas}';";
-        $query = $this->db->query($sql);
-
-        if (!$query || $query > 0) {
-            error_log($this->db->error . PHP_EOL);
-            $_SESSION['aviso'] = "playlist já existente!";
-            return false;
-        }
-
         $sql = "INSERT INTO playlist (nome_playlist, id_musicas) VALUES ('$nomePlaylist', '$id_musicas');";
         if (!$this->db->query($sql)) {
             exit($this->db->error);
@@ -62,13 +53,15 @@ class Playlist
         return true;
     }
 
-    public function existe($nome)
+    public function existe($nome, $id_musicas)
     {
-        $sql = "SELECT nome_playlist FROM playlist WHERE nome_playlist = '{$nome}';";
+
+        $sql = "SELECT nome_playlist, id_musicas FROM playlist WHERE nome_playlist = '{$nome}' AND id_musicas = '{$id_musicas}';";
         $query = $this->db->query($sql);
 
         if (!$query) {
             error_log($this->db->error . PHP_EOL);
+            $_SESSION['aviso'] = "não foi possivel salvar a playlist!";
             return false;
         }
 
@@ -97,5 +90,15 @@ class Playlist
             }
             return $idMusicas;
         }
+    }
+
+    public function excluir_playlist($id)
+    {
+        $sql = "DELETE FROM playlist WHERE id = $id";
+        if (!$this->db->query($sql)) {
+            error_log($this->db->error);
+            return false;
+        }
+        return true;
     }
 }

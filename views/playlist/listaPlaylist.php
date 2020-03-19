@@ -13,7 +13,7 @@ $playlist_query = mysqli_query($db, "SELECT * FROM playlist");
 				<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
-							<th>Playlists Salvas</th>
+							<th colspan="2">Playlists Salvas</th>
 						</tr>
 					</thead>
 					<?php if (mysqli_num_rows($playlist_query) > 0): ?>
@@ -22,6 +22,9 @@ $playlist_query = mysqli_query($db, "SELECT * FROM playlist");
 								<tr>
 									<td>
 										<a href="/playlist.php?musicas=<?php echo $playlist['id_musicas']; ?>">Playlist: <?php echo $playlist['nome_playlist']; ?></a>
+									</td>
+									<td>
+										<a href="/actions/playlist/excluirPlaylist.php?id=<?php echo $playlist['id']; ?>" class="btn btn-danger">excluir</a>
 									</td>
 								</tr>
 							<?php endforeach;?>
