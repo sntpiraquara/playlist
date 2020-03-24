@@ -8,3 +8,10 @@ services:
       MYSQL_DATABASE: playlist
     ports:
       - 3306:3306
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: doacao-mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"

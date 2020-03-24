@@ -3,6 +3,9 @@ session_start();
 
 require_once "vendor/autoload.php";
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 require_once "models/Usuario.php";
 require_once "models/Musica.php";
 require_once "models/Playlist.php";
