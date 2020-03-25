@@ -2,7 +2,7 @@
 
 function getMysqlConfigFromEnv()
 {
-    $url = getenv("JAWSDB_URL");
+    $url = getenv("DATABASE_URL");
 
     $config = parse_url($url);
 
