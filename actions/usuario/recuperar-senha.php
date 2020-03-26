@@ -37,15 +37,23 @@ $usuario = [];
 if (mysqli_num_rows($query) > 0) {
     while ($row = mysqli_fetch_assoc($query)) {
         $usuario = $row;
+        $senha_hash = $usuario['senhaUsuario'];
+        $senhaRecuperar = $usuario['senhaRecuperar'];
+        $Verificar = password_verify($senhaRecuperar, $senha_hash);
     }
-
-    enviarEmail(
-        "playlist@localhost.com",
-        $usuario['emailUsuario'],
-        "Recuperar Senha",
-        "Sua senha é: ",
-        "<html>Sua senha é: <b>" . $usuario['senhaUsuario'] . "</b></html>"
-    );
+    if ($Verificar) {
+        enviarEmail(
+            "playlist@localhost.com",
+            $usuario['emailUsuario'],
+            "Recuperar Senha",
+            "Sua senha é: ",
+            "<html>Sua senha é: <b>" . $usuario['senhaRecuperar'] . "</b></html>"
+        );
+    } else {
+        $_SESSION['aviso'] = "Não Foi Possivel Recuperar Sua Senha";
+        header("location: /recuperar.php");
+        exit();
+    }
 }
 
 $_SESSION['aviso'] = "Sua senha foi recuperada. Verifique seu E-mail";

@@ -24,6 +24,7 @@ if ($emailExiste) {
 $token_email = rand(10000, 999999999999);
 
 $usuario->nome = $nome;
+$usuario->senhaRecuperar = $senha;
 $usuario->senha = password_hash($senha, PASSWORD_DEFAULT);
 $usuario->email = $email;
 $usuario->token_email = $token_email;
