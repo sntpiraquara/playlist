@@ -11,13 +11,13 @@ if ($senha != $confirmarSenha) {
     exit(header("location: /cadastrar.php"));
 }
 
-$sql = "SELECT emailUsuario FROM usuario WHERE emailUsuario = '{$email}' AND id = '1';";
+$sql = "SELECT emailUsuario FROM usuario WHERE emailUsuario = '{$email}';";
 
 $usuario = new Usuario($db);
 $emailExiste = $usuario->existe($sql);
 
 if ($emailExiste) {
-    $_SESSION['aviso'] = 'Esse endereço de e-mail já existe ou você já esta autenticado!';
+    $_SESSION['aviso'] = 'Esse endereço de E-mail já existe';
     exit(header("Location: /cadastrar.php"));
 }
 
