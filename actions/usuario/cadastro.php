@@ -28,7 +28,7 @@ $usuario->senha = password_hash($senha, PASSWORD_DEFAULT);
 $usuario->email = $email;
 $usuario->token_email = $token_email;
 
-enviarEmailValidacao($usuario->nome, $usuario->email, $usuario->token_email);
+enviarEmailValidacao($usuario->email, $usuario->token_email);
 
 $usuario->cadastrar();
 
