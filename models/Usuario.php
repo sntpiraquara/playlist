@@ -1,5 +1,4 @@
 <?php
-
 class Usuario
 {
     private $db;
@@ -10,7 +9,6 @@ class Usuario
     public $token_email;
     public $nome;
     public $validado;
-    public $senhaRecuperar;
 
     public function __construct($db)
     {
@@ -19,7 +17,7 @@ class Usuario
 
     public function cadastrar()
     {
-        $sql = "INSERT INTO usuario (nomeUsuario, senhaUsuario, emailUsuario, token_email, senhaRecuperar) VALUES ('$this->nome', '$this->senha', '$this->email', '$this->token_email', '$this->senhaRecuperar')";
+        $sql = "INSERT INTO usuario (nomeUsuario, senhaUsuario, emailUsuario, token_email) VALUES ('$this->nome', '$this->senha', '$this->email', '$this->token_email')";
 
         if (!$this->db->query($sql)) {
             exit($this->db->error);

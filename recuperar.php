@@ -1,5 +1,5 @@
 <?php
-$title = "Recuperar Senha";
+$title = "Restaurar Senha";
 require_once 'config.php';
 require_once 'views/template/header.php';
 ?>
@@ -8,12 +8,12 @@ require_once 'views/template/header.php';
 		<div class="row">
 			<div class="col-sm">
 				<h2>Recuperação de Senha</h2>
-				
+
 				<div class="aviso">
 					<?php aviso();?>
 				</div>
-				
-				<form action="actions/usuario/recuperar-senha.php" method="POST">
+
+				<form action="actions/usuario/restaurar-senha.php" method="POST">
 					<div class="form-group">
 						<label for="email">E-mail</label>
 						<input id="email" class="form-control" required="required" type="email" name="email" placeholder="digite seu E-mail">
