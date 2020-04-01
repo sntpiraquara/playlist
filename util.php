@@ -81,3 +81,12 @@ function verificaUsuarioLogado()
         exit;
     }
 }
+
+function dotenv()
+{
+    if (file_exists(dirname(".env"))) {
+        $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+        return $dotenv->load();
+    }
+    return false;
+}

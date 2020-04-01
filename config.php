@@ -2,11 +2,10 @@
 session_start();
 
 require_once "vendor/autoload.php";
+// Helpers
+require_once "util.php";
 
-if (file_exists(dirname(".env"))) {
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-    $dotenv->load();
-}
+dotenv();
 
 require_once "models/Usuario.php";
 require_once "models/Musica.php";
