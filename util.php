@@ -87,6 +87,7 @@ function dotenv()
     if (file_exists(dirname(".env"))) {
         $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
         return $dotenv->load();
+    } else {
+        return null;
     }
-    return false;
 }
