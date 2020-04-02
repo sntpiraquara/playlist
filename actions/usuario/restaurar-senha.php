@@ -14,13 +14,13 @@ if (!$usuario->existe($sql)) {
 }
 
 $query = $db->query($sql);
-
 $validacao = mysqli_num_rows($query);
 
 if ($validacao <= 0) {
     $_SESSION['aviso'] = "E-mail digitado incorretamente ou não existe!";
     header("Location: /recuperar.php");
     $db->close();
+
 } else {
     $password = bin2hex(random_bytes(6));
     $passwd4restore = password_hash($password, PASSWORD_DEFAULT);
