@@ -1,6 +1,6 @@
 <?php
 
-require_once "config.php";
+require_once "../../config.php";
 
 $senha = addslashes($_POST['senha']);
 $token = addslashes($_POST['token']);
