@@ -10,8 +10,8 @@ $sql = "UPDATE usuario SET senhaUsuario = '{$senha_hash}' WHERE token_email = '{
 $query = mysqli_query($db, $sql);
 
 if (!$query || empty($token)) {
-    $_SESSION['aviso'] = "Não foi possivel recuperar a senha.";
-    header("location: /restaurar_senha.php");
+    $_SESSION['aviso'] = "Não Foi Possivel Recuperar a Senha.";
+    header("location: /recuperar.php");
     exit($db->error);
 } else {
     $_SESSION['aviso'] = "Senha Alterada Com Sucesso!";
