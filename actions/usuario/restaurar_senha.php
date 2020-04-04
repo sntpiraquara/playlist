@@ -19,13 +19,18 @@ if (!$usuario->existe($sql)) {
         exit($db->error);
     }
     $usuario = [];
-    enviarEmail(
-        "playlist@localhost.com",
-        $usuario['emailUsuario'],
-        "Recuperar Senha",
-        "Restaurar Senha!",
-        "<html>Clique para <a href='" . $_SERVER['SERVER_NAME'] . "/views/usuario/restaurar_senha_form.php?token=" . $usuario['token_email'] . "'>Restaurar Sua Senha!</html>"
-    );
+    if (mysqli_num_row($query) > 0) {
+        while ($row = mysqli_fetch_assoc($query)) {
+            $usuario = $row;
+        }
+        enviarEmail(
+            "playlist@localhost.com",
+            $usuario['emailUsuario'],
+            "Recuperar Senha",
+            "Restaurar Senha!",
+            "<html>Clique para <a href='" . $_SERVER['SERVER_NAME'] . "/views/usuario/restaurar_senha_form.php?token=" . $usuario['token_email'] . "'>Restaurar Sua Senha!</html>"
+        );
+    }
     $_SESSION['aviso'] = "Enviamos um link para o seu e-mail para recuperar sua senha!";
     header("Location: /recuperar.php");
     exit();
