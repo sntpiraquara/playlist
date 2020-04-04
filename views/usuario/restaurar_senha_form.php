@@ -8,8 +8,9 @@ include '../../views/template/header.php';
 		<div class="row mt-5">
 			<h2>Restaure Sua Senha!</h2>
 			<div class="col-sm-12 mt-5">
-				<form method="POST" action="/nova_senha.php">
+				<form method="POST" action="nova_senha.php">
 					<div class="form-group"><label for="senha">Digite Sua Nova Senha:</label>
+						<input type="hidden" value="<? $_GET['token']; ?>" name="token">
 						<input id="senha" class="form-control" required="required" type="password" name="senha" placeholder="Sua Nova Senha">
 					</div>
 					<button class="btn btn-lg btn-success" type="submit">Salvar</button>
