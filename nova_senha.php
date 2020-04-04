@@ -5,8 +5,8 @@ require_once "config.php";
 $senha = addslashes($_POST['senha']);
 $token = addslashes($_POST['token']);
 
-$sql = "UPDATE usuario SET senhaUsuario = '{$senha}' WHERE token_email = '{$token}'";
-
+$senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+$sql = "UPDATE usuario SET senhaUsuario = '{$senha_hash}' WHERE token_email = '{$token}'";
 $query = mysqli_query($db, $sql);
 
 if (!$query || empty($token)) {
