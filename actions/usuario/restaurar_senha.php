@@ -19,7 +19,7 @@ if (!$usuario->existe($sql)) {
         exit($db->error);
     }
     $usuario = [];
-    if (mysqli_num_row($query) > 0) {
+    if (mysqli_num_rows($query) > 0) {
         while ($row = mysqli_fetch_assoc($query)) {
             $usuario = $row;
         }
