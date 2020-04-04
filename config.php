@@ -5,9 +5,9 @@ require_once "vendor/autoload.php";
 
 $fileString = ".env";
 $file = strval($fileString);
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 
 if (file_exists($file)) {
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
     $dotenv->load();
 }
 
