@@ -13,7 +13,7 @@ require_once 'views/template/header.php';
 					<?php aviso();?>
 				</div>
 
-				<form action="actions/usuario/restaurar-senha.php" method="POST">
+				<form action="actions/usuario/restaurar_senha.php" method="POST">
 					<div class="form-group">
 						<label for="email">E-mail</label>
 						<input id="email" class="form-control" required="required" type="email" name="email" placeholder="digite seu E-mail">
