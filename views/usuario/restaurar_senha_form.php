@@ -1,7 +1,8 @@
 <?php
 $title = 'Restaurar Senha';
 require_once '../../config.php';
-include '../../views/template/header.php';?>
+include '../../views/template/header.php';
+?>
 <body>
 	<div class="container">
 		<div class="row mt-5">
