@@ -11,11 +11,11 @@ $query = mysqli_query($db, $sql);
 
 if (!$query) {
     $_SESSION['aviso'] = "Não Foi Possivel Recuperar a Senha.";
-    header("location: /recuperar.php");
+    header("location:/recuperar.php");
     exit($db->error);
 } else {
     $_SESSION['aviso'] = "Senha Alterada Com Sucesso!";
-    header("loaction:/login.php");
+    header("location:/login.php");
     exit();
 }
 $db->close();
