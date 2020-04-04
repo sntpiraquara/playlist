@@ -2,6 +2,7 @@
 $title = 'Restaurar Senha';
 require_once '../../config.php';
 include '../../views/template/header.php';
+$token = $_GET['token'];
 ?>
 <body>
 	<div class="container">
@@ -10,7 +11,7 @@ include '../../views/template/header.php';
 			<div class="col-sm-12 mt-5">
 				<form method="POST" action="/actions/usuario/nova_senha.php">
 					<div class="form-group"><label for="senha">Digite Sua Nova Senha:</label>
-						<input type="hidden" value="<? $_GET['token']; ?>" name="token">
+						<input type="hidden" value="<?php echo $token; ?>" name="token">
 						<input id="senha" class="form-control" required="required" type="password" name="senha" placeholder="Sua Nova Senha">
 					</div>
 					<button class="btn btn-lg btn-success" type="submit">Salvar</button>

@@ -6,6 +6,7 @@ $senha = addslashes($_POST['senha']);
 $token = addslashes($_POST['token']);
 
 $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+
 $sql = "UPDATE usuario SET senhaUsuario = '{$senha_hash}' WHERE token_email = '{$token}'";
 $query = mysqli_query($db, $sql);
 
