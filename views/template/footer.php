@@ -1,6 +1,6 @@
 	<footer class="footer">
 		<div class="container">
-			<span class="text-muted fixed-bottom">SNT Piraquara - Gerador de Playlists.</span>
+			<span class="text-muted">SNT Piraquara - Gerador de Playlists.</span>
 		</div>
 	</footer>
 
