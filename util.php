@@ -67,7 +67,7 @@ function enviarEmailValidacao($email, $token)
         $email,
         "Confirmacao Cadastro",
         "para confirmar o cadastro clique no link:",
-        "<html><b>Para que possamos confirmar seu cadastro</b> <a href='" . $_SERVER['SERVER_NAME'] . "/confirmar-cadastro.php?token=" . $token . "'>clique aqui</a></html>"
+        "<html><b>Para que possamos confirmar seu cadastro: </b><a href='" . $_SERVER['SERVER_NAME'] . "/confirmar-cadastro.php?token=" . $token . "'>clique aqui</a></html>"
     );
 }
 /**
