@@ -7,21 +7,46 @@ class Musica
     public $id;
     public $nome;
     public $artista;
-    public $tipo;
+    public $id_artista;
 
     public function __construct($db)
     {
         $this->db = $db;
     }
 
-    public function cadastrar()
+    public function cadastrar_musica()
     {
-        $sql = "INSERT INTO musicas (nomeArtista, nomeMusica, tipo) VALUES ('$this->artista', '$this->nome', '$this->tipo')";
+        $sql = "INSERT INTO musicas (nomeMusica, id_artista) VALUES ('$this->nome','$this->id_artista')";
         if (!$this->db->query($sql)) {
             echo $this->db->error . PHP_EOL;
             return false;
         }
         return true;
+    }
+
+    public function cadastrar_artista()
+    {
+        $sql = "INSERT INTO artistas (nome) VALUES ('$this->artista')";
+        if (!$this->db->query($sql)) {
+            echo $this->db->error . PHP_EOL;
+            return false;
+        }
+        return true;
+    }
+
+    public function id_artista()
+    {
+        $ids = [];
+        $sql_id = "SELECT * FROM artistas ORDER BY id";
+        $query = $this->db->query($sql_id);
+        if (!$query) {
+            exit($this->db->error . PHP_EOL);
+            return false;
+        }
+        while ($row = mysqli_fetch_assoc($query)) {
+            $ids = $row['id'];
+        }
+        return $ids;
     }
 
     public function gerarPlaylist($qtdAgitada, $qtdTransicao, $qtdAdoracao)

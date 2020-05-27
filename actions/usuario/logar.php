@@ -15,7 +15,6 @@ $user = mysqli_fetch_assoc($consult);
 $verify_paswd = password_verify($senha, $user['senhaUsuario']);
 
 if ($verify_paswd) {
-
     $sql = "SELECT emailUsuario, senhaUsuario
 	FROM   usuario
 	WHERE  emailUsuario = '{$email}'

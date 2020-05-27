@@ -1,6 +1,6 @@
 <?php
-
 require "config.php";
+verificaUsuarioLogado();
 
 error_reporting(E_ERROR | E_PARSE);
 
@@ -57,13 +57,18 @@ function getMusicasDoArtista($artista)
 
 $artistas = getListaArtistas();
 
+$model = new Musica($db);
+
 foreach ($artistas as $artista) {
+    $model->artista = $artista['nome'];
+    $model->cadastrar_artista();
+    $idArtista = $model->id_artista();
+
     $musicas = getMusicasDoArtista($artista);
 
     foreach ($musicas as $musica) {
-		$model = new Musica($db);
-		$model->artista = $artista['nome'];
-		$model->nome = $musica['titulo'];
-		$model->cadastrar();
+        $model->nome = $musica['titulo'];
+        $model->id_artista = $idArtista;
+        $model->cadastrar_musica();
     }
 }

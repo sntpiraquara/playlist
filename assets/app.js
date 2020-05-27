@@ -7,7 +7,6 @@ $('.btn-musica-editar').click(function(){
   const id = row.find('input[name="id"]').val()
   const nome = row.find('input[name="nome"]').val()
   const artista = row.find('input[name="artista"]').val()
-  const tipo = row.find('input[name="tipo"]').val()
 
   const $modal = $('#musicaEditarModal')
 
@@ -15,7 +14,6 @@ $('.btn-musica-editar').click(function(){
     $modal.find('input[name="id"]').val(id)
     $modal.find('input[name="nome"]').val(nome)
     $modal.find('input[name="artista"]').val(artista)
-    $modal.find('select[name="tipo"]').val(tipo)
   })
 
   $modal.modal('show')
@@ -41,3 +39,4 @@ $('.musica-modal-excluir-btn').click(function(){
   const id = $(this).attr('data-id');
   document.location.href = `/actions/musica/excluir.php?musicaId=${id}`
 });
+

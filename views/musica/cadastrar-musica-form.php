@@ -10,15 +10,6 @@
       <label for="artista">Nome do artista</label>
       <input class="form-control" id="artista" required="required" type="text" name="artista" placeholder="Nome do Artista/Banda">
     </div>
-    
-    <div class="form-group">
-      <label for="tipo">Tipo</label>
-      <select name="tipo" id="tipo" class="form-control">
-        <option value="agitada">Agitada</option>
-        <option value="transição">Transição</option>
-        <option value="adoração">Adoração</option>
-      </select>
-    </div>
 
     <button type="submit" class="btn btn-success">Cadastrar</button>
   </form>
