@@ -16,6 +16,12 @@ CREATE TABLE usuario (
 	PRIMARY KEY (id)
 );
 
+CREATE TABLE artistas (
+	id INT auto_increment not null,
+	nome VARCHAR(255),
+	primary key(id)
+);
+
 CREATE TABLE playlist (
 	id INT auto_increment NOT NULL,
 	nome_playlist VARCHAR(255) NOT NULL,
