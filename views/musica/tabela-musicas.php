@@ -40,30 +40,30 @@ $proximo = $pc + 1;?>
 				</tr>
 			<?php else:
     while ($musica = mysqli_fetch_assoc($limite)): ?>
-							<tr>
-								<form action="editar.php" method="post">
-									<input type="hidden" name="id" value="<?=$musica['id'];?>">
-									<input type="hidden" name="nome" value="<?=$musica['nomeMusica'];?>">
-									<input type="hidden" name="artista" value="<?=$musica['id_artista'];?>">
-								</form>
-								<td><?=$musica['nomeMusica'];?></td>
-								<td><?=$musica['nome'];?></td>
-								<td>
-									<button type="button" class= "btn btn-primary btn-musica-editar">Editar</button>
-									<button type="button" class="btn btn-danger btn-musica-excluir">Excluir</button>
-								</td>
-							</tr>
-						<?php endwhile;?>
+								<tr>
+									<form action="editar.php" method="post">
+										<input type="hidden" name="id" value="<?=$musica['id'];?>">
+										<input type="hidden" name="nome" value="<?=$musica['nomeMusica'];?>">
+										<input type="hidden" name="artista" value="<?=$musica['id_artista'];?>">
+									</form>
+									<td><?=$musica['nomeMusica'];?></td>
+									<td><?=$musica['nome'];?></td>
+									<td>
+										<button type="button" class= "btn btn-primary btn-musica-editar">Editar</button>
+										<button type="button" class="btn btn-danger btn-musica-excluir">Excluir</button>
+									</td>
+								</tr>
+							<?php endwhile;?>
 			<?php endif;?>
 		</tbody>
 	</table>
-	<nav aria-label="Navegação de página exemplo">
+	<nav aria-label="Navegação de página exemplo" id="page">
 		<ul class="pagination justify-content-end">
 			<?php if ($pc > 1): ?>
-				<li class="page-item"><a class="page-link" href="?pagina=<?php echo $anterior; ?>">Ver Menos</a></li>
+				<li class="page-item"><a class="page-link" href="?pagina=<?php echo $anterior; ?>#page">Ver Menos</a></li>
 			<?php endif;
 if ($pc < $count_pages): ?>
-				<li class="page-item"><a class="page-link" href="?pagina=<?php echo $proximo; ?>">Ver Mais</a></li>
+				<li class="page-item"><a class="page-link" href="?pagina=<?php echo $proximo; ?>#page">Ver Mais</a></li>
 			<?php endif;?>
 		</ul>
 	</nav>

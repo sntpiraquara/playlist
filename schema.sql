@@ -28,4 +28,3 @@ CREATE TABLE playlist (
 	id_musicas VARCHAR(60),
 	PRIMARY KEY (id)
 );
-
