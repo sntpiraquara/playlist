@@ -1,6 +1,6 @@
 <?php
 require "config.php";
-verificaUsuarioLogado();
+// verificaUsuarioLogado();
 
 error_reporting(E_ERROR | E_PARSE);
 
