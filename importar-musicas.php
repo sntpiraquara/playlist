@@ -6,7 +6,8 @@ error_reporting(E_ERROR | E_PARSE);
 
 function htmlToDOMDocument($url)
 {
-    $html = file_get_contents($url);
+
+    $html = file_get_contents($url, false);
     $doc = new DOMDocument();
     $doc->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
     return $doc;
@@ -60,15 +61,15 @@ $artistas = getListaArtistas();
 $model = new Musica($db);
 
 foreach ($artistas as $artista) {
-    $model->artista = $artista['nome'];
+    $model->artista = addslashes($artista['nome']);
     $model->cadastrar_artista();
     $idArtista = $model->id_artista();
 
     $musicas = getMusicasDoArtista($artista);
 
     foreach ($musicas as $musica) {
-        $model->nome = $musica['titulo'];
-        $model->id_artista = $idArtista;
+        $model->nome = addslashes($musica['titulo']);
+        $model->id_artista = addslashes($idArtista);
         $model->cadastrar_musica();
     }
 }
