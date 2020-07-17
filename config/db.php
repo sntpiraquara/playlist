@@ -2,19 +2,9 @@
 
 global $CONFIG;
 
-$config = $CONFIG['database']['mysql'];
+$config = $CONFIG['database']['postgres'];
 
-$db = new mysqli(
-    $config['host'],
-    $config['user'],
-    $config['password'],
-    $config['database'],
-    $config['port']
-);
+$db = pg_connect(
+    $config['url']
+) or die("falha na conexão!");
 
-// verificando conexão com o banco de dados
-if ($db->connect_error) {
-    error_log('Connect Error (' . $db->connect_errno . ') '
-        . $db->connect_error);
-    exit("Falha na conexão com o banco de dados.");
-}

@@ -3,7 +3,7 @@ session_start();
 
 require_once "vendor/autoload.php";
 
-$fileString = __DIR__ . ".env";
+$fileString = __DIR__ . "/.env";
 $file = strval($fileString);
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 

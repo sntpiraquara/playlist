@@ -3,12 +3,11 @@
 function getMysqlConfigFromEnv()
 {
     $url = getenv("DATABASE_URL");
-
     $config = parse_url($url);
-
     $dbName = substr($config['path'], 1);
 
     return [
+        'url'      => $url,
         'host'     => $config['host'],
         'port'     => $config['port'],
         'user'     => $config['user'],
@@ -26,6 +25,7 @@ return [
     ],
 
     'database' => [
-        'mysql' => getMysqlConfigFromEnv(),
+        'postgres' => getMysqlConfigFromEnv(),
     ],
 ];
+
