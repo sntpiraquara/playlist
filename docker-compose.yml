@@ -1,13 +1,22 @@
 version: '3.1'
 
 services:
-  db:
+  mysql:
     image: mariadb:10.4
     environment:
-      MYSQL_ROOT_PASSWORD: 5544
+      MYSQL_ROOT_PASSWORD: playlist
       MYSQL_DATABASE: playlist
     ports:
       - 3306:3306
+
+  postgresql:
+    image: postgres:11
+    environment:
+      POSTGRES_PASSWORD: playlist
+      POSTGRES_USER: playlist
+      POSTGRES_DB: playlist
+    ports:
+      - 5432:5432
 
   mailhog:
     image: mailhog/mailhog

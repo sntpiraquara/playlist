@@ -1,5 +1,8 @@
 <?php
+
 require_once "../../config.php";
+
+global $DB;
 
 $nome = addslashes($_POST['nome']);
 $email = addslashes($_POST['email']);
@@ -13,7 +16,7 @@ if ($senha != $confirmarSenha) {
 
 $sql = "SELECT emailUsuario FROM usuario WHERE emailUsuario = '{$email}';";
 
-$usuario = new Usuario($db);
+$usuario = new Usuario($DB);
 $emailExiste = $usuario->existe($sql);
 
 if ($emailExiste) {

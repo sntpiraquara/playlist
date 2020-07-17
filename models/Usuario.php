@@ -1,4 +1,7 @@
 <?php
+
+use App\Database\DB;
+
 class Usuario
 {
     private $db;
@@ -10,14 +13,14 @@ class Usuario
     public $nome;
     public $validado;
 
-    public function __construct($db)
+    public function __construct(DB $db)
     {
         $this->db = $db;
     }
 
     public function cadastrar()
     {
-        $sql = "INSERT INTO usuario (nomeUsuario, senhaUsuario, emailUsuario, token_email) VALUES ('$this->nome', '$this->senha', '$this->email', '$this->token_email')";
+        $sql = "INSERT INTO usuario (nomeUsuario, senhaUsuario, emailUsuario, token_email) VALUES ('$this->nome', '$this->senha', '$this->email', '$this->token_email');";
 
         if (!$this->db->query($sql)) {
             exit($this->db->error);
@@ -35,7 +38,7 @@ class Usuario
             return false;
         }
 
-        $encontrado = mysqli_num_rows($query);
+        $encontrado = $this->db->length($query);
 
         if ($encontrado > 0) {
             return true;

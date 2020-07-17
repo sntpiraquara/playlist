@@ -3,6 +3,8 @@ session_start();
 
 require_once "vendor/autoload.php";
 
+use App\Database\DB;
+
 $fileString = __DIR__ . "/.env";
 $file = strval($fileString);
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -34,4 +36,8 @@ if ($CONFIG['env'] === "dev") {
 require_once "util.php";
 
 // Database stuff
-require_once "config/db.php";
+
+global $CONFIG;
+global $DB;
+
+$DB = new DB($CONFIG['database']);

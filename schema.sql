@@ -38,12 +38,12 @@ CREATE TABLE IF NOT EXISTS usuario (
 	id BIGSERIAL PRIMARY KEY,
 	nomeUsuario VARCHAR(50) NOT NULL,
 	emailUsuario VARCHAR(100) NOT NULL,
-	senhaUsuario VARCHAR(50) NOT NULL,
+	senhaUsuario VARCHAR(255) NOT NULL,
 	validado BOOLEAN DEFAULT(false),
 	token_email  VARCHAR(100)
 );
 
-CREATE TABLE IF NOT EXISTS artista (
+CREATE TABLE IF NOT EXISTS artistas (
 	id bigserial primary key not null,
 	nome varchar(50) not null 
 );
